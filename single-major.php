@@ -3,6 +3,29 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title><?php the_title(); ?> | Degrees at Cal Lutheran</title>
+
+
+
+	<?php
+		$large_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'large');
+		$small_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'medium');
+	?>
+
+	<style type="text/css">
+			.degree-detail .page-hero {
+				background-image: url('<?php echo $small_hero; ?>'); /* FOR MOBILE */
+				background-position: center bottom;
+			}
+			@media (min-width: 768px){
+				.degree-detail .page-hero {
+					background-image: url('<?php echo $large_hero; ?>'); /* FOR DESKTOP */
+					background-position: center bottom;
+				}
+			}
+	</style>
+		
+
+
 </head>
 <body>
 		
@@ -76,32 +99,57 @@
 				<p><?php echo program_format_sentence($post); ?></p>
 				<br>
 
-				<h6>Popular Minor Pairings</h6>
-				<ul class="special-list">
+				
+				<?
+					$concentrations = get_field('concentrations');
+
+					if(!empty($concentrations)){ ?>
+					
+					<h6>Concentrations</h6>
+					<ul>
+						<? foreach($concentrations as $key=>$c){
+							echo '<li>'.$c->name.'</li>';
+						} ?>
+					</ul>
+
+					<? } ?>
+
+				
 				<?php
 					$related_minors = get_field('related_minors');
-					foreach($related_minors as $key=>$item){
-						echo '<li><a href="/academics/minors/'.$item->post_name.'">'.$item->post_title.'</a></li>';
-					}
-				?>
-				</ul>
-				<br>				
+
+					if(!empty($related_minors)){ ?>
+					
+					<h6>Popular Minor Pairings</h6>
+					<ul class="special-list">
+
+						<? foreach($related_minors as $key=>$item){
+							echo '<li><a href="/academics/minors/'.$item->post_name.'">'.$item->post_title.'</a></li>';
+						} ?>
+
+					</ul>
+					<br>	
+
+				<? } ?>
+							
 
 				<div class="row">
 					<div class="col-sm-12 col-md-9">
 				
 						<div class="btn-group">
-							<a class="btn gold icon-check block btn-arrow-right" href="<?php the_field('catalog_url'); ?>" title="Course Requirements">Course Requirements</a>
-							<a class="btn gold icon-course-requirements block btn-arrow-right" href="<?php the_field('catalog_url'); ?>#courseinventory" title="Course Descriptions">Course Descriptions</a>					
+							<? if(get_field('catalog_url')){ ?>
+								<a class="btn gold icon-check block btn-arrow-right" href="<?php the_field('catalog_url'); ?>" title="Course Requirements">Course Requirements</a>
+								
+								<a class="btn gold icon-course-requirements block btn-arrow-right" href="<?php the_field('catalog_url'); ?>#courseinventory" title="Course Descriptions">Course Descriptions</a>		
+							<? } ?>
+
+							<? if(get_field('department_url')){ ?>
+								<a class="btn gold icon-web block btn-arrow-right" href="<? the_field('department_url'); ?>" title="Department Website">Department Website</a>
+							<? } ?>			
 						</div>
 						<br>
 						
-						<div class="btn-group">
-							<a href="/admission/undergraduate/apply/" class="btn blue block btn-arrow-right" onclick="ga('send', 'event', 'UGadmission', 'Click - Majors CTA', 'How to Apply');">How to Apply</a>
-							<a href="/financial-aid/affordability/" class="btn blue block btn-arrow-right" onclick="ga('send', 'event', 'UGadmission', 'Click - Majors CTA', 'Tuition &amp; Financial Aid');">Tuition &amp; Financial Aid</a>
-							<a href="/admission/undergraduate/contact/request-info.html" class="btn blue block btn-arrow-right" onclick="ga('send', 'event', 'UGadmission', 'Click - Majors CTA', 'Request Info');">Request Info</a>
-							<a href="/admission/undergraduate/visit/schedule.html" class="btn blue block btn-arrow-right" onclick="ga('send', 'event', 'UGadmission', 'Click - Majors CTA', 'Visit Us');">Visit Us</a>
-						</div>
+						<? get_template_part('parts/sidebar-cta'); ?>
 						
 					</div>
 				</div>
