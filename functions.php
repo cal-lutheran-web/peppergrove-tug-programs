@@ -1,6 +1,51 @@
 <?php
 
 
+
+function program_format_string($post){
+
+	$format = get_field('program_format');
+	$formats = array();
+
+	foreach($format as $item){
+
+		if($item == 'ba'){
+			$formats[] = 'Bachelor of Arts';
+		}
+	
+		if($item == 'bs'){
+			$formats[] = 'Bachelor of Science';
+		}
+
+	}
+
+	return implode('<br/>',$formats);
+
+}
+
+
+
+function program_format_sentence($post){
+
+	$format = get_field('program_format');
+
+	$degree_string = '';
+	
+	if(in_array('major', $format)){ $degree_string .= 'a major '; }
+	if(in_array('ba', $format) && !in_array('bs', $format)){ $degree_string .= '(BA)'; }
+	if(in_array('bs', $format) && !in_array('ba', $format)){ $degree_string .= '(BS)'; }	
+	if(in_array('ba', $format) && in_array('bs', $format)){ $degree_string .= '(BA or BS)'; }
+	if(in_array('major', $format) && in_array('minor', $format)){ $degree_string .= ' and a <a href="/academics/minors/'.$post->post_name.'">minor</a>'; }	
+	if(in_array('minor', $format) && !in_array('major', $format)){ $degree_string .= 'a minor'; }
+
+	return 'Offered as '.$degree_string.'.';
+
+}
+
+
+
+
+
 function bidirectional_acf_update_value( $value, $post_id, $field  ) {
 	
 	// vars
