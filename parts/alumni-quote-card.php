@@ -1,10 +1,11 @@
 <?
 
-	$aside = '<img class="circle-wrap" src="" alt="'.get_the_title().'">';
+	$aside = wp_get_attachment_image(get_post_thumbnail_id($post->ID), 'medium', false, array('class' => 'circle-wrap'));
 
+	$cite = '<cite>'.get_the_title().'</cite><p>'.get_field('job_title').'<br />'.get_field('company').'</p>';
 	$read_more = (get_field('url') !== '') ? '<a href="'.get_field('url').'" class="btn">Read More</a>' : '';
 
-	$si_content = get_field('quote').$read_more;
+	$si_content = '<blockquote>'.get_field('quote').'</blockquote>'.$cite.$read_more;
 
 ?>
 
