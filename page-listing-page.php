@@ -18,6 +18,17 @@ $minors = get_posts(array(
 ?>
 
 
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Majors and Minors Listing Page</title>
+</head>
+<body>
+
+
+
+
 <div class="row">
 	<div class="col-sm-12">
 		<div class="tabs all-categories" id="program-list">
@@ -82,3 +93,9 @@ $minors = get_posts(array(
 		</div>
 	</div>
 </div>
+
+
+
+
+</body>
+</html>
