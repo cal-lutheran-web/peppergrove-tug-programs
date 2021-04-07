@@ -23,6 +23,18 @@ $minors = get_posts(array(
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Majors and Minors Listing Page</title>
+
+
+	<link rel="canonical" href="https://www.callutheran.edu/academics/majors/" />
+	
+	<!-- Majors Listing CSS -->
+	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/majors-listing.css" />
+	
+	<!-- Majors Listing JS -->
+	<script type="text/javascript" src="https://www.callutheran.edu/academics/majors/_resources/js/majors-listing-2021.js"></script>
+
+
+
 </head>
 <body>
 
