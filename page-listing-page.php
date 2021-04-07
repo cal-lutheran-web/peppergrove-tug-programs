@@ -32,7 +32,9 @@ $minors = get_posts(array(
 	<!-- Majors Listing JS -->
 	<script type="text/javascript" src="https://www.callutheran.edu/academics/majors/_resources/js/majors-listing-2021.js"></script>
 
-
+	<?php conejo_css(); ?>
+	
+	<?php conejo_js(); ?>
 
 </head>
 <body>
