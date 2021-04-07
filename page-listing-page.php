@@ -21,7 +21,6 @@ $minors = get_posts(array(
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Majors and Minors Listing Page</title>
 
 
