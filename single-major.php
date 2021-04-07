@@ -1,9 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+
 	<title><?php the_title(); ?> | Degrees at Cal Lutheran</title>
-
-
 
 	<?php
 		$large_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'large');
@@ -23,8 +22,6 @@
 			}
 	</style>
 		
-
-
 </head>
 <body>
 		
@@ -99,7 +96,7 @@
 				<br>
 
 				
-				<?
+				<?php
 					$concentrations = get_field('concentrations');
 
 					if(!empty($concentrations)){ ?>
@@ -171,7 +168,7 @@
 					
 				<div class="two-column-feature">
 					<div class="flexrow">
-						<?
+						<?php
 
 							$exp_quotes_field = get_field('related_exp_quotes');
 							shuffle($exp_quotes_field);
@@ -252,7 +249,7 @@
 
 
 
-			<?
+			<?php
 
 				$alumni_quotes_field = get_field('related_quotes');
 				shuffle($alumni_quotes_field);

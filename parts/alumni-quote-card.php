@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$aside = wp_get_attachment_image(get_post_thumbnail_id($post->ID), 'medium', false, array('class' => 'circle-wrap'));
 

@@ -1,4 +1,4 @@
-<?
+<?php
 
 $faculty_list = get_field('faculty_list');
 
