@@ -7,4 +7,4 @@
 
 
 <div class="wrap-16x9"><img src="<?php echo $img_data; ?>"></div>
-<? echo $quote; ?>
+<?php echo $quote; ?>

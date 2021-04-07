@@ -50,7 +50,7 @@ $minors = get_posts(array(
 
 							<?php foreach($majors as $key=>$m){ ?>
 							<li class="<?php ?>"><a href="<?php echo $m->post_name; ?>/" title="<?php echo $m->post_title; ?>" class="degree-item-link"><span class="degree-title"><?php echo $m->post_title; ?></span></a></li>
-							<? } ?>
+							<?php } ?>
 
 						</ul>
 
@@ -85,7 +85,7 @@ $minors = get_posts(array(
 						<ul class="col-list degree-list" id="minors-list">
 							<?php foreach($minors as $key=>$m){ ?>
 								<li class="<?php ?>"><a href="<?php echo $m->post_name; ?>/" title="<?php echo $m->post_title; ?>" class="degree-item-link"><span class="degree-title"><?php echo $m->post_title; ?></span></a></li>
-							<? } ?>
+							<?php } ?>
 						</ul>
 					</div>
 				</div>

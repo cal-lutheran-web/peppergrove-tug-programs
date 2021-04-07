@@ -107,12 +107,12 @@
 					
 					<h6>Concentrations</h6>
 					<ul>
-						<? foreach($concentrations as $key=>$c){
+						<?php foreach($concentrations as $key=>$c){
 							echo '<li>'.$c->name.'</li>';
 						} ?>
 					</ul>
 
-					<? } ?>
+					<?php } ?>
 
 				
 				<?php
@@ -123,33 +123,33 @@
 					<h6>Popular Minor Pairings</h6>
 					<ul class="special-list">
 
-						<? foreach($related_minors as $key=>$item){
+						<?php foreach($related_minors as $key=>$item){
 							echo '<li><a href="/academics/minors/'.$item->post_name.'">'.$item->post_title.'</a></li>';
 						} ?>
 
 					</ul>
 					<br>	
 
-				<? } ?>
+				<?php } ?>
 							
 
 				<div class="row">
 					<div class="col-sm-12 col-md-9">
 				
 						<div class="btn-group">
-							<? if(get_field('catalog_url')){ ?>
+							<?php if(get_field('catalog_url')){ ?>
 								<a class="btn gold icon-check block btn-arrow-right" href="<?php the_field('catalog_url'); ?>" title="Course Requirements">Course Requirements</a>
 								
 								<a class="btn gold icon-course-requirements block btn-arrow-right" href="<?php the_field('catalog_url'); ?>#courseinventory" title="Course Descriptions">Course Descriptions</a>		
-							<? } ?>
+							<?php } ?>
 
-							<? if(get_field('department_url')){ ?>
-								<a class="btn gold icon-web block btn-arrow-right" href="<? the_field('department_url'); ?>" title="Department Website">Department Website</a>
-							<? } ?>			
+							<?php if(get_field('department_url')){ ?>
+								<a class="btn gold icon-web block btn-arrow-right" href="<?php the_field('department_url'); ?>" title="Department Website">Department Website</a>
+							<?php } ?>			
 						</div>
 						<br>
 						
-						<? get_template_part('parts/sidebar-cta'); ?>
+						<?php get_template_part('parts/sidebar-cta'); ?>
 						
 					</div>
 				</div>
