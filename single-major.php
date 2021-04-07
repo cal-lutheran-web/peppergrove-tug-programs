@@ -9,6 +9,14 @@
 		$small_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'medium');
 	?>
 
+
+
+	<link rel="stylesheet" type="text/css" href="/academics/majors/_resources/css/degree-detail.css?v=7-12-17-a" />
+	<link rel="stylesheet" type="text/css" href="/_resources/css/chartist.min.css" />
+	<link rel="stylesheet" type="text/css" href="/_resources/css/custom-charts.css" />
+
+	
+
 	<style type="text/css">
 			.degree-detail .page-hero {
 				background-image: url('<?php echo $small_hero; ?>'); /* FOR MOBILE */
@@ -21,6 +29,13 @@
 				}
 			}
 	</style>
+
+
+
+	<script src="/_resources/js/chartist.min.js"></script>
+	<script src="/_resources/js/custom-charts.js"></script>
+	<script src="/_resources/js/jquery.waypoints.min.js?v=1"></script>
+	<script src="/academics/majors/_resources/js/program-detail.js?v=5-8-18-b"></script>
 		
 </head>
 <body>
