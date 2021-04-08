@@ -45,6 +45,33 @@ $minors = get_posts(array(
 </head>
 <body>
 
+<?php
+
+	$all_categories = get_terms(array(
+		'taxonomy' => 'category',
+		'hide_empty' => true,
+		'exclude' => 1
+	));
+	
+	if(!empty($all_categories)){
+?>
+
+<div class="row" id="filters-row">
+	<div class="col-sm-12">
+		<h4 class="centered">Browse by Category</h4>
+		<ul id="the-categories">
+			<li><label><input value="all-categories" name="categories" type="radio" checked="checked"><span>All Categories</span></label></li>
+
+			<?php foreach($all_categories as $key=>$cat) {
+				echo '<li><label><input value="'.$cat->slug.'" name="categories" type="radio"><span>'.$cat->name.'</span></label></li>';
+			} ?>
+		</ul>
+	</div>
+
+</div>
+
+
+<?php } ?>
 
 
 
