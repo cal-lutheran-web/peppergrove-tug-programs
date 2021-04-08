@@ -26,15 +26,21 @@ $minors = get_posts(array(
 
 	<link rel="canonical" href="https://www.callutheran.edu/academics/majors/" />
 	
+
+	<?php conejo_css(); ?>
+
 	<!-- Majors Listing CSS -->
 	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/majors-listing.css" />
 	
+
+	<?php conejo_js(); ?>
+
+
 	<!-- Majors Listing JS -->
 	<script type="text/javascript" src="https://www.callutheran.edu/academics/majors/_resources/js/majors-listing-2021.js"></script>
 
-	<?php conejo_css(); ?>
+
 	
-	<?php conejo_js(); ?>
 
 </head>
 <body>
@@ -62,7 +68,27 @@ $minors = get_posts(array(
 						<ul class="col-list-2 degree-list" id="majors-list">
 
 							<?php foreach($majors as $key=>$m){ ?>
-							<li class="<?php ?>"><a href="<?php echo $m->post_name; ?>/" title="<?php echo $m->post_title; ?>" class="degree-item-link"><span class="degree-title"><?php echo $m->post_title; ?></span></a></li>
+								<li class="<?php ?>">
+									<a href="<?php echo $m->post_name; ?>/" title="<?php echo $m->post_title; ?>" class="degree-item-link">
+										<span class="degree-title"><?php echo $m->post_title; ?></span>
+										<small><?php echo program_format_string($m,'short'); ?></small>
+									</a>
+
+										<?php
+											$concentrations = get_field('concentrations', $m->ID);
+
+											if(!empty($concentrations)){ ?>
+												<ul class="sublist">
+													<?php foreach($concentrations as $key=>$c){
+														echo '<li>'.$c->name.'</li>';
+													} ?>
+												</ul>
+
+										<?php } ?>
+
+										
+								
+								</li>
 							<?php } ?>
 
 						</ul>

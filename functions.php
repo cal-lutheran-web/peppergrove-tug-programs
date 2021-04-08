@@ -2,25 +2,47 @@
 
 
 
-function program_format_string($post){
+function program_format_string($post,$type='full'){
 
-	$format = get_field('program_format');
+	// short returns BA, BS
+	// full returns Bachelor of Arts<br />Bachelor of Science
+
+	$format = get_field('program_format', $post->ID);
 	$formats = array();
 
-	foreach($format as $item){
-
-		if($item == 'ba'){
-			$formats[] = 'Bachelor of Arts';
-		}
+	if(!empty($format)){
 	
-		if($item == 'bs'){
-			$formats[] = 'Bachelor of Science';
+		foreach($format as $item){
+
+			if($item == 'ba'){
+				if($type == 'short'){
+					$formats[] = 'BA';
+				} else {
+					$formats[] = 'Bachelor of Arts';
+				}
+			}
+		
+			if($item == 'bs'){
+				if($type == 'short'){
+					$formats[] = 'BS';
+				} else {
+					$formats[] = 'Bachelor of Science';
+				}
+			}
+
 		}
+
+		$separator = ($type == 'short') ? ', ' : '<br />';
+
+		return implode($separator,$formats);
+
+	} else {
+
+		return false;
 
 	}
 
-	return implode('<br/>',$formats);
-
+		
 }
 
 
