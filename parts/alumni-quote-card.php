@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 
-			<?php short_item($aside,$si_content,'short-item-large'); ?>
+			<?php short_item($aside,$si_content,'short-item-large short-item-no-border'); ?>
 
 		</div>
 	</div>

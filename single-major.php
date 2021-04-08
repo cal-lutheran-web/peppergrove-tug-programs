@@ -11,7 +11,7 @@
 
 	<?php conejo_css(); ?>
 
-	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/degree-detail.css?v=7-12-17-a" />
+	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/degree-detail.css" />
 	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/_resources/css/chartist.min.css" />
 	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/_resources/css/custom-charts.css" />
 
@@ -40,7 +40,7 @@
 	<script src="https://www.callutheran.edu/academics/majors/_resources/js/program-detail.js?v=5-8-18-b"></script>
 		
 </head>
-<body>
+<body class="degree-detail">
 		
 	<section class="page-hero tall">
 		<div class="page-hero-heading-wrapper">
@@ -59,23 +59,27 @@
 
 	<section>
 		<div class="container">
+			<div class="row">
 							
-			<div class="<?php echo $summary_css_class; ?> program-summary">
-				
-				<?php the_field('summary'); ?>
-				
-			</div>
-			
-			<?php if(get_field('overview_video') !== '') { ?>
-				<div class="col-sm-6">
-					<div class="wrap-16x9">
-						<iframe id="youTubePlayer" width="560" height="315" src="//www.youtube.com/embed/<?php the_field('overview_video'); ?>?modestbranding=1&amp;rel=0&amp;showinfo=0&amp;controls=1&amp;wmode=transparent&amp;enablejsapi=1&amp;origin=https://www.callutheran.edu" allowfullscreen=""></iframe>
-					</div>
+				<div class="<?php echo $summary_css_class; ?> program-summary">
+					
+					<?php the_field('summary'); ?>
+					
 				</div>
-			<?php } ?>
-						
-			<div class="col-sm-12 hide-on-desktop">
-				<a href="/academics/majors" class="btn btn-arrow-left green btn-small">View Other Majors</a>
+				
+				<?php if(get_field('overview_video') !== '') { ?>
+					<div class="col-sm-6">
+						<div class="wrap-16x9">
+							<iframe id="youTubePlayer" width="560" height="315" src="//www.youtube.com/embed/<?php the_field('overview_video'); ?>?modestbranding=1&amp;rel=0&amp;showinfo=0&amp;controls=1&amp;wmode=transparent&amp;enablejsapi=1&amp;origin=https://www.callutheran.edu" allowfullscreen=""></iframe>
+						</div>
+					</div>
+				<?php } ?>
+
+			</div>
+			<div class="row">		
+				<div class="col-sm-12 hide-on-desktop">
+					<a href="/academics/majors" class="btn btn-arrow-left green btn-small">View Other Majors</a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -253,9 +257,9 @@
 				</div>
 		
 				<div class="col-sm-3 centered">
-
+					
 					<div class="factoid-pie" id="pie-chart-97">
-						<div class="ct-chart ct-octave" data-pie="97"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-b"><path d="M85.5,0A43,43,0,0,0,77.295,0.79L85.5,43Z" class="ct-slice-pie" ct:value="3"></path></g><g class="ct-series ct-series-a"><path d="M77.443,0.762A43,43,0,1,0,85.5,0L85.5,43Z" class="ct-slice-pie" ct:value="97"></path></g><text x="50%" y="50%" dy="0.5ex" class="ct-label">97%</text></svg></div>
+						<div class="ct-chart ct-octave" data-pie="97"></div>
 						<p>of Cal Lutheran graduates find a job or enroll in graduate school within nine months</p>
 					</div>
 					
