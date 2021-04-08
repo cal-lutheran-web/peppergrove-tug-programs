@@ -45,6 +45,39 @@ $minors = get_posts(array(
 </head>
 <body>
 
+
+<section class="header-row bg-overlay" id="section-1">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>Undergraduate Majors &amp; Minors</h1>
+				<form id="search-form" action="." method="get">
+					
+					<div class="search-wrapper">
+						<label for="search-box" class="icon-search"><span class="sr-only">Search by Keyword</span></label>
+						<input type="text" class="keyword-search" name="search-box" id="search-box" placeholder="Search by Keyword">
+					</div>
+					
+					<div id="search-results">
+						<ul style="display: none;"></ul>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+<section class="bg-white" id="section-2">
+	<div class="container">
+	<div class="row">
+	<div class="col-sm-12">
+
 <?php
 
 	$all_categories = get_terms(array(
@@ -56,22 +89,28 @@ $minors = get_posts(array(
 	if(!empty($all_categories)){
 ?>
 
-<div class="row" id="filters-row">
-	<div class="col-sm-12">
-		<h4 class="centered">Browse by Category</h4>
-		<ul id="the-categories">
-			<li><label><input value="all-categories" name="categories" type="radio" checked="checked"><span>All Categories</span></label></li>
 
-			<?php foreach($all_categories as $key=>$cat) {
-				echo '<li><label><input value="'.$cat->slug.'" name="categories" type="radio"><span>'.$cat->name.'</span></label></li>';
-			} ?>
-		</ul>
+	<div class="row" id="filters-row">
+		<div class="col-sm-12">
+			<h4 class="centered">Browse by Category</h4>
+			<ul id="the-categories">
+				<li><label><input value="all-categories" name="categories" type="radio" checked="checked"><span>All Categories</span></label></li>
+
+				<?php foreach($all_categories as $key=>$cat) {
+					echo '<li><label><input value="'.$cat->slug.'" name="categories" type="radio"><span>'.$cat->name.'</span></label></li>';
+				} ?>
+			</ul>
+		</div>
 	</div>
-
-</div>
 
 
 <?php } ?>
+
+
+
+
+
+
 
 
 
@@ -159,6 +198,11 @@ $minors = get_posts(array(
 		</div>
 	</div>
 </div>
+
+
+</div>
+</div>
+</section>
 
 
 
