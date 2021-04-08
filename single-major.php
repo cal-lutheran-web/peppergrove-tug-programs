@@ -9,7 +9,7 @@
 		$small_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'medium');
 	?>
 
-
+	<?php conejo_css(); ?>
 
 	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/degree-detail.css?v=7-12-17-a" />
 	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/_resources/css/chartist.min.css" />
@@ -31,6 +31,8 @@
 	</style>
 
 
+
+	<?php conejo_js(true); ?>
 
 	<script src="https://www.callutheran.edu/_resources/js/chartist.min.js"></script>
 	<script src="https://www.callutheran.edu/_resources/js/custom-charts.js"></script>
