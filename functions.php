@@ -68,6 +68,32 @@ function program_format_sentence($post){
 
 
 
+function program_format_search_result($post){
+
+	if($post->post_type == 'major'){
+
+		$format = get_field('program_format', $post->ID);
+		
+		if(!empty($format) && in_array('advising',get_field('program_format', $post->ID))){
+			$type = 'Advising Program';
+		} else {
+			$type = 'Major';
+		}
+
+	} else {
+		$type = 'Minor';
+	}
+
+	return $type;
+
+}
+
+
+
+
+
+
+
 function bidirectional_acf_update_value( $value, $post_id, $field  ) {
 	
 	// vars
