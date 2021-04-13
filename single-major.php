@@ -177,7 +177,21 @@
 		
 		
 		
-		
+	<?php
+
+		$exp_quotes_field = get_field('related_exp_quotes');
+		shuffle($exp_quotes_field);
+
+		$displayed_quotes = array_slice($exp_quotes_field, 0, 2);
+
+		$exp_posts = get_posts(array(
+			'post_type' => 'quotes',
+			'include' => $displayed_quotes
+		));
+
+
+	if(!empty($exp_posts)){
+	?>
 		
 	<!-- THE EXPERIENCE -->
 	<section id="the-experience" style="padding-bottom:0;">
@@ -191,15 +205,7 @@
 					<div class="flexrow">
 						<?php
 
-							$exp_quotes_field = get_field('related_exp_quotes');
-							shuffle($exp_quotes_field);
-						
-							$displayed_quotes = array_slice($exp_quotes_field, 0, 2);
 							
-							$exp_posts = get_posts(array(
-								'post_type' => 'quotes',
-								'include' => $displayed_quotes
-							));
 
 							foreach($exp_posts as $key=>$post){
 								setup_postdata($post);
@@ -220,9 +226,11 @@
 		</div>
 	</section>
 		
+	<?php } ?>
 		
-		
-		
+	
+
+	<?php if(!empty(get_field('career_intro'))){ ?>
 	
 	<!-- YOUR FUTURE -->
 	<section id="your-future">
@@ -270,51 +278,65 @@
 
 
 
-			<?php
+		<?php
 
-				$alumni_quotes_field = get_field('related_quotes');
-				shuffle($alumni_quotes_field);
+			$alumni_quotes_field = get_field('related_quotes');
+			shuffle($alumni_quotes_field);
+		
+			$displayed_alumni_quotes = array_slice($alumni_quotes_field, 0, 1);
 			
-				$displayed_alumni_quotes = array_slice($alumni_quotes_field, 0, 1);
-				
-				$alumni_posts = get_posts(array(
-					'post_type' => 'quotes',
-					'include' => $displayed_alumni_quotes
-				));
+			$alumni_posts = get_posts(array(
+				'post_type' => 'quotes',
+				'include' => $displayed_alumni_quotes
+			));
 
-				if(!empty($alumni_posts)){
-					foreach($alumni_posts as $key=>$post){
-						setup_postdata($post);
-						
-						get_template_part('parts/alumni-quote-card');
-					}
+			if(!empty($alumni_posts)){
+				foreach($alumni_posts as $key=>$post){
+					setup_postdata($post);
+					
+					get_template_part('parts/alumni-quote-card');
 				}
-				
-				wp_reset_postdata();
-
-			?>
-
+			}
 			
-			
-		</section>
+			wp_reset_postdata();
+
+		?>
+
 		
-				
 		
-	<!-- YOUR PROFESSORS -->
-	<section id="your-professors">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="section-title">Your Professors</div>
+	</section>
+	
+	<?php } ?>
+
+
+	<?php
+		$faculty_list = get_field('faculty_list');
+		
+		if(!empty($faculty_list)){ ?>
+		
+		<!-- YOUR PROFESSORS -->
+		<section id="your-professors">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="section-title">Your Professors</div>
+					</div>
+				</div>
+				<div class="flexrow">
+
+				<?php 
+					foreach($faculty_list as $key=>$f){
+						parse_str($f, $faculty_item);
+
+						get_template_part('parts/faculty-list');
+
+				} ?>
+								
 				</div>
 			</div>
-			<div class="flexrow">
+		</section>
 
-				<?php get_template_part('parts/faculty-list'); ?>
-							
-			</div>
-		</div>
-	</section>
+	<?php } ?>
 
 </div>
 	
