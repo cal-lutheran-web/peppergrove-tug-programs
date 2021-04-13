@@ -1,9 +1,3 @@
-<?php
-
-$faculty_list = get_field('faculty_list');
-
-foreach($faculty_list as $key=>$f){
-	parse_str($f, $faculty_item); ?>
 
 
 <a class="profile" href="/faculty/profile.html?id=<?php echo $faculty_item['username']; ?>" title="<?php echo $faculty_item['name']; ?>">
@@ -12,6 +6,3 @@ foreach($faculty_list as $key=>$f){
 	<p><?php echo $faculty_item['title']; ?></p>
 </a>
 	
-
-	
-<?php } ?>
