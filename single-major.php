@@ -328,7 +328,7 @@
 					foreach($faculty_list as $key=>$f){
 						parse_str($f, $faculty_item);
 
-						get_template_part('parts/faculty-list');
+						include( locate_template( 'parts/faculty-item.php', false, false ) ); 
 
 				} ?>
 								
