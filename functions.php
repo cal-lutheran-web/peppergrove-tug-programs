@@ -1,6 +1,20 @@
 <?php
 
 
+function active_sections($post){
+
+	$active = array();
+
+	$active['experience'] = get_field('related_exp_quotes') ? true : null;
+	$active['future'] = get_field('career_intro') ?  true : null;
+	$active['faculty'] = get_field('faculty_list') ? true : null;
+
+	return $active;
+	
+
+}
+
+
 
 function program_format_string($post,$type='full'){
 
@@ -51,16 +65,20 @@ function program_format_sentence($post){
 
 	$format = get_field('program_format');
 
-	$degree_string = '';
-	
-	if(in_array('major', $format)){ $degree_string .= 'a major '; }
-	if(in_array('ba', $format) && !in_array('bs', $format)){ $degree_string .= '(BA)'; }
-	if(in_array('bs', $format) && !in_array('ba', $format)){ $degree_string .= '(BS)'; }	
-	if(in_array('ba', $format) && in_array('bs', $format)){ $degree_string .= '(BA or BS)'; }
-	if(in_array('major', $format) && in_array('minor', $format)){ $degree_string .= ' and a <a href="/academics/minors/'.$post->post_name.'">minor</a>'; }	
-	if(in_array('minor', $format) && !in_array('major', $format)){ $degree_string .= 'a minor'; }
+	if(!empty($format)){
+		$degree_string = '';
+		
+		if(in_array('major', $format)){ $degree_string .= 'a major '; }
+		if(in_array('ba', $format) && !in_array('bs', $format)){ $degree_string .= '(BA)'; }
+		if(in_array('bs', $format) && !in_array('ba', $format)){ $degree_string .= '(BS)'; }	
+		if(in_array('ba', $format) && in_array('bs', $format)){ $degree_string .= '(BA or BS)'; }
+		if(in_array('major', $format) && in_array('minor', $format)){ $degree_string .= ' and a <a href="/academics/minors/'.$post->post_name.'">minor</a>'; }	
+		if(in_array('minor', $format) && !in_array('major', $format)){ $degree_string .= 'a minor'; }
 
-	return 'Offered as '.$degree_string.'.';
+		return 'Offered as '.$degree_string.'.';
+	} else {
+		return false;
+	}
 
 }
 
