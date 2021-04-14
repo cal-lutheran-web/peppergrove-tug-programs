@@ -99,102 +99,106 @@
 <div id="content-sections">		
 		
 	<!-- THE CURRICULUM -->
-	
-	<section id="the-curriculum">
-		<div class="container">
-			<div class="col-sm-12"><div class="section-title">The Curriculum</div></div>
-			<div class="col-md-8 col-sm-9">
-			
-				<?php the_field('curriculum'); ?>
-			
-			</div>
-			<div class="col-md-4 col-sm-3">
-				
-				<hr class="gold hide-on-desktop">
-				
-				<h6>Programs</h6>
-				<p><?php echo program_format_sentence($post); ?></p>
-				<br>
+	<?php if(array_key_exists('curriculum', active_sections($post))){ ?>
 
+		<section id="curriculum">
+			<div class="container">
+				<div class="col-sm-12"><div class="section-title">The Curriculum</div></div>
+				<div class="col-md-8 col-sm-9">
 				
-				<?php
-					$concentrations = get_field('concentrations');
-
-					if(!empty($concentrations)){ ?>
+					<?php the_field('curriculum'); ?>
+				
+				</div>
+				<div class="col-md-4 col-sm-3">
 					
-					<h6>Concentrations</h6>
-					<ul>
-						<?php foreach($concentrations as $key=>$c){
-							echo '<li>'.$c->name.'</li>';
-						} ?>
-					</ul>
+					<hr class="gold hide-on-desktop">
+					
+					<h6>Programs</h6>
+					<p><?php echo program_format_sentence($post); ?></p>
+					<br>
+
+					
+					<?php
+						$concentrations = get_field('concentrations');
+
+						if(!empty($concentrations)){ ?>
+						
+						<h6>Concentrations</h6>
+						<ul>
+							<?php foreach($concentrations as $key=>$c){
+								echo '<li>'.$c->name.'</li>';
+							} ?>
+						</ul>
+
+						<?php } ?>
+
+					
+					<?php
+						$related_minors = get_field('related_minors');
+
+						if(!empty($related_minors)){ ?>
+						
+						<h6>Popular Minor Pairings</h6>
+						<ul class="special-list">
+
+							<?php foreach($related_minors as $key=>$item){
+								echo '<li><a href="/academics/minors/'.$item->post_name.'">'.$item->post_title.'</a></li>';
+							} ?>
+
+						</ul>
+						<br>	
 
 					<?php } ?>
-
-				
-				<?php
-					$related_minors = get_field('related_minors');
-
-					if(!empty($related_minors)){ ?>
-					
-					<h6>Popular Minor Pairings</h6>
-					<ul class="special-list">
-
-						<?php foreach($related_minors as $key=>$item){
-							echo '<li><a href="/academics/minors/'.$item->post_name.'">'.$item->post_title.'</a></li>';
-						} ?>
-
-					</ul>
-					<br>	
-
-				<?php } ?>
-							
-
-				<div class="row">
-					<div class="col-sm-12 col-md-9">
-				
-						<div class="btn-group">
-							<?php if(get_field('catalog_url')){ ?>
-								<a class="btn gold icon-check block btn-arrow-right" href="<?php the_field('catalog_url'); ?>" title="Course Requirements">Course Requirements</a>
 								
-								<a class="btn gold icon-course-requirements block btn-arrow-right" href="<?php the_field('catalog_url'); ?>#courseinventory" title="Course Descriptions">Course Descriptions</a>		
-							<?php } ?>
 
-							<?php if(get_field('department_url')){ ?>
-								<a class="btn gold icon-web block btn-arrow-right" href="<?php the_field('department_url'); ?>" title="Department Website">Department Website</a>
-							<?php } ?>			
+					<div class="row">
+						<div class="col-sm-12 col-md-9">
+					
+							<div class="btn-group">
+								<?php if(get_field('catalog_url')){ ?>
+									<a class="btn gold icon-check block btn-arrow-right" href="<?php the_field('catalog_url'); ?>" title="Course Requirements">Course Requirements</a>
+									
+									<a class="btn gold icon-course-requirements block btn-arrow-right" href="<?php the_field('catalog_url'); ?>#courseinventory" title="Course Descriptions">Course Descriptions</a>		
+								<?php } ?>
+
+								<?php if(get_field('department_url')){ ?>
+									<a class="btn gold icon-web block btn-arrow-right" href="<?php the_field('department_url'); ?>" title="Department Website">Department Website</a>
+								<?php } ?>			
+							</div>
+							<br>
+							
+							<?php get_template_part('parts/sidebar-cta'); ?>
+							
 						</div>
-						<br>
-						
-						<?php get_template_part('parts/sidebar-cta'); ?>
-						
 					</div>
+					
 				</div>
-				
 			</div>
-		</div>
-	</section>
-		
-		
+		</section>
+			
+	<?php } ?>
 		
 	<?php
 
 		$exp_quotes_field = get_field('related_exp_quotes');
-		shuffle($exp_quotes_field);
 
-		$displayed_quotes = array_slice($exp_quotes_field, 0, 2);
+		if(array_key_exists('experience', active_sections($post))){
 
-		$exp_posts = get_posts(array(
-			'post_type' => 'quotes',
-			'include' => $displayed_quotes
-		));
+			shuffle($exp_quotes_field);
+
+			$displayed_quotes = array_slice($exp_quotes_field, 0, 2);
+
+			$exp_posts = get_posts(array(
+				'post_type' => 'quotes',
+				'include' => $displayed_quotes
+			));
 
 
-	if(!empty($exp_posts)){
+			if(!empty($exp_posts)){
 	?>
 		
 	<!-- THE EXPERIENCE -->
-	<section id="the-experience" style="padding-bottom:0;">
+	<section id="experience" style="padding-bottom:0;">
 		<div class="container">
 			<div class="col-sm-12">
 				<div class="section-title">The Experience</div>
@@ -204,8 +208,6 @@
 				<div class="two-column-feature">
 					<div class="flexrow">
 						<?php
-
-							
 
 							foreach($exp_posts as $key=>$post){
 								setup_postdata($post);
@@ -226,14 +228,14 @@
 		</div>
 	</section>
 		
-	<?php } ?>
+	<?php } } ?>
 		
 	
 
-	<?php if(!empty(get_field('career_intro'))){ ?>
+	<?php if(array_key_exists('future', active_sections($post))){ ?>
 	
 	<!-- YOUR FUTURE -->
-	<section id="your-future">
+	<section id="future">
 		<div class="container">
 			<div class="col-sm-12"><div class="section-title">Your Future</div></div>
 				
@@ -281,24 +283,28 @@
 		<?php
 
 			$alumni_quotes_field = get_field('related_quotes');
-			shuffle($alumni_quotes_field);
-		
-			$displayed_alumni_quotes = array_slice($alumni_quotes_field, 0, 1);
-			
-			$alumni_posts = get_posts(array(
-				'post_type' => 'quotes',
-				'include' => $displayed_alumni_quotes
-			));
 
-			if(!empty($alumni_posts)){
-				foreach($alumni_posts as $key=>$post){
-					setup_postdata($post);
-					
-					get_template_part('parts/alumni-quote-card');
-				}
-			}
+			if(!empty($alumni_quotes_field)){
+				shuffle($alumni_quotes_field);
 			
-			wp_reset_postdata();
+				$displayed_alumni_quotes = array_slice($alumni_quotes_field, 0, 1);
+				
+				$alumni_posts = get_posts(array(
+					'post_type' => 'quotes',
+					'include' => $displayed_alumni_quotes
+				));
+
+				if(!empty($alumni_posts)){
+					foreach($alumni_posts as $key=>$post){
+						setup_postdata($post);
+						
+						get_template_part('parts/alumni-quote-card');
+					}
+				}
+			
+				wp_reset_postdata();
+
+			}
 
 		?>
 
@@ -310,9 +316,9 @@
 
 
 	<?php
-		$faculty_list = get_field('faculty_list');
+		$faculty_list = array_filter(get_field('faculty_list'));
 		
-		if(!empty($faculty_list)){ ?>
+		if(array_key_exists('faculty', active_sections($post))){ ?>
 		
 		<!-- YOUR PROFESSORS -->
 		<section id="your-professors">
@@ -327,9 +333,7 @@
 				<?php 
 					foreach($faculty_list as $key=>$f){
 						parse_str($f, $faculty_item);
-
 						include( locate_template( 'parts/faculty-item.php', false, false ) ); 
-
 				} ?>
 								
 				</div>

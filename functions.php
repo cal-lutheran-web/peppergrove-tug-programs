@@ -5,9 +5,10 @@ function active_sections($post){
 
 	$active = array();
 
-	$active['experience'] = get_field('related_exp_quotes') ? true : null;
-	$active['future'] = get_field('career_intro') ?  true : null;
-	$active['faculty'] = get_field('faculty_list') ? true : null;
+	$active['curriculum'] = get_field('curriculum') ? 'The Curriculum' : null;
+	$active['experience'] = get_field('related_exp_quotes') ? 'The Experience' : null;
+	$active['future'] = get_field('career_intro') ?  'Your Future' : null;
+	$active['faculty'] = get_field('faculty_list') ? 'Your Professors' : null;
 
 	return $active;
 	
