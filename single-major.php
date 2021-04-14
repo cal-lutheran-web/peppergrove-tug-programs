@@ -2,53 +2,13 @@
 <html>
 <head>
 
-	<title><?php the_title(); ?> | Degrees at Cal Lutheran</title>
-
-	<?php
-		$large_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'large');
-		$small_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'medium');
-	?>
-
-	<?php conejo_css(); ?>
-
-	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/degree-detail.css" />
-	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/_resources/css/chartist.min.css" />
-	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/_resources/css/custom-charts.css" />
-
-	
-
-	<style type="text/css">
-			.degree-detail .page-hero {
-				background-image: url('<?php echo $small_hero; ?>'); /* FOR MOBILE */
-				background-position: center bottom;
-			}
-			@media (min-width: 768px){
-				.degree-detail .page-hero {
-					background-image: url('<?php echo $large_hero; ?>'); /* FOR DESKTOP */
-					background-position: center bottom;
-				}
-			}
-	</style>
-
-
-
-	<?php conejo_js(true); ?>
-
-	<script src="https://www.callutheran.edu/_resources/js/chartist.min.js"></script>
-	<script src="https://www.callutheran.edu/_resources/js/custom-charts.js"></script>
-	<script src="https://www.callutheran.edu/_resources/js/jquery.waypoints.min.js?v=1"></script>
-	<script src="https://www.callutheran.edu/academics/majors/_resources/js/program-detail.js?v=5-8-18-b"></script>
+	<?php get_template_part('parts/html-head'); ?>
 		
 </head>
 <body class="degree-detail">
-		
-	<section class="page-hero tall">
-		<div class="page-hero-heading-wrapper">
-			<h1 class="page-hero-heading"><?php the_title(); ?></h1>
-			<h2 class="page-hero-subheading"><?php echo program_format_string($post); ?></h2>
-		</div>
-		<div class="overlay-medium"></div>
-	</section>
+	
+	<!-- Page Hero -->
+	<?php get_template_part('parts/page-hero'); ?>
 	
 	<!-- breadcrumbs -->
 	<?php get_template_part('parts/breadcrumbs'); ?>
@@ -84,10 +44,6 @@
 		</div>
 	</section>
 		
-
-
-
-
 
 	<!-- THE PAGE NAVBAR THING -->
 	<?php get_template_part('parts/in-page-nav'); ?>
@@ -177,7 +133,8 @@
 		</section>
 			
 	<?php } ?>
-		
+	
+	<!-- THE EXPERIENCE -->
 	<?php
 
 		$exp_quotes_field = get_field('related_exp_quotes');
@@ -197,7 +154,6 @@
 			if(!empty($exp_posts)){
 	?>
 		
-	<!-- THE EXPERIENCE -->
 	<section id="experience" style="padding-bottom:0;">
 		<div class="container">
 			<div class="col-sm-12">
@@ -231,10 +187,9 @@
 	<?php } } ?>
 		
 	
-
+	<!-- YOUR FUTURE -->
 	<?php if(array_key_exists('future', active_sections($post))){ ?>
 	
-	<!-- YOUR FUTURE -->
 	<section id="future">
 		<div class="container">
 			<div class="col-sm-12"><div class="section-title">Your Future</div></div>
@@ -315,12 +270,13 @@
 	<?php } ?>
 
 
+	<!-- YOUR PROFESSORS -->
 	<?php
 		$faculty_list = array_filter(get_field('faculty_list'));
 		
 		if(array_key_exists('faculty', active_sections($post))){ ?>
 		
-		<!-- YOUR PROFESSORS -->
+		
 		<section id="your-professors">
 			<div class="container">
 				<div class="row">
@@ -344,10 +300,5 @@
 
 </div>
 	
-
-
-
-
-
 </body>
 </html>
