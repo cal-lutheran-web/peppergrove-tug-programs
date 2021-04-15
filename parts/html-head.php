@@ -3,9 +3,6 @@
 <?php conejo_css(); ?>
 
 <link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/degree-detail.css" />
-<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/_resources/css/chartist.min.css" />
-<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/_resources/css/custom-charts.css" />
-
 
 <?php if(!empty(page_hero_images($post)['large'])){ ?>
 
@@ -28,7 +25,5 @@
 
 <?php conejo_js(true); ?>
 
-<script src="https://www.callutheran.edu/_resources/js/chartist.min.js"></script>
-<script src="https://www.callutheran.edu/_resources/js/custom-charts.js"></script>
 <script src="https://www.callutheran.edu/_resources/js/jquery.waypoints.min.js?v=1"></script>
 <script src="https://www.callutheran.edu/academics/majors/_resources/js/program-detail.js?v=5-8-18-b"></script>
