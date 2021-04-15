@@ -1,6 +1,18 @@
 <?php
 
 
+function page_hero_images($post){
+
+	$large_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'large');
+	$small_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'medium');
+
+	return array(
+		'large' => $large_hero,
+		'small' => $small_hero
+	);
+}
+
+
 function active_sections($post){
 
 	$active = array();
