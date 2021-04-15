@@ -8,7 +8,7 @@
 <body class="degree-detail">
 	
 	<!-- Page Hero -->
-	<?php get_template_part('parts/page-hero'); ?>
+	<?php get_template_part('parts/page-hero', 'advising'); ?>
 	
 	<!-- breadcrumbs -->
 	<?php get_template_part('parts/breadcrumbs'); ?>
