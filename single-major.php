@@ -3,7 +3,13 @@
 <head>
 
 	<?php get_template_part('parts/html-head'); ?>
-		
+
+	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/_resources/css/chartist.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/_resources/css/custom-charts.css" />
+	
+	<script src="https://www.callutheran.edu/_resources/js/chartist.min.js"></script>
+	<script src="https://www.callutheran.edu/_resources/js/custom-charts.js"></script>
+
 </head>
 <body class="degree-detail">
 	
