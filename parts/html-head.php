@@ -1,10 +1,5 @@
 <title><?php the_title(); ?> | Degrees at Cal Lutheran</title>
 
-<?php
-	$large_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'large');
-	$small_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'medium');
-?>
-
 <?php conejo_css(); ?>
 
 <link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/degree-detail.css" />
@@ -12,19 +7,22 @@
 <link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/_resources/css/custom-charts.css" />
 
 
+<?php if(!empty(page_hero_images($post)['large'])){ ?>
 
 <style type="text/css">
 		.degree-detail .page-hero {
-			background-image: url('<?php echo $small_hero; ?>'); /* FOR MOBILE */
+			background-image: url('<?php echo page_hero_images($post)['small']; ?>'); /* FOR MOBILE */
 			background-position: center bottom;
 		}
 		@media (min-width: 768px){
 			.degree-detail .page-hero {
-				background-image: url('<?php echo $large_hero; ?>'); /* FOR DESKTOP */
+				background-image: url('<?php echo page_hero_images($post)['large']; ?>'); /* FOR DESKTOP */
 				background-position: center bottom;
 			}
 		}
 </style>
+
+<?php } ?>
 
 
 
