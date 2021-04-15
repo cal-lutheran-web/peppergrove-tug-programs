@@ -166,7 +166,14 @@ $minors = get_posts(array(
 							<h5>Advising Programs</h5>
 							<?php the_field('advising_programs'); ?>
 							
-							<ul><li><a href="pre-engineering/" title="Pre-Engineering">Pre-Engineering</a></li><li><a href="pre-law/" title="Pre-Law">Pre-Law</a></li><li><a href="pre-med/" title="Pre-Med">Pre-Med</a></li></ul>
+							<ul>
+							<?php $advising_programs = get_posts(array( 'post_type' => 'advising' ));
+
+							foreach($advising_programs as $key=>$a){
+								echo '<li><a href="'.$a->post_name.'">'.$a->post_title.'</a></li>';
+							}
+							?>
+							</ul>
 						</div>
 							
 						<div class="bg-box bg-white">
