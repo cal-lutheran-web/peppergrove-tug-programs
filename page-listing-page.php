@@ -33,11 +33,11 @@ $minors = get_posts(array(
 	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/majors-listing.css" />
 	
 
-	<?php conejo_js(); ?>
+	<?php conejo_js(true); ?>
 
 
 	<!-- Majors Listing JS -->
-	<script type="text/javascript" src="https://www.callutheran.edu/academics/majors/_resources/js/majors-listing-2021.js"></script>
+	<script type="text/javascript" src="https://www.callutheran.edu/academics/majors/_resources/js/majors-listing.js"></script>
 
 
 	
@@ -133,8 +133,12 @@ $minors = get_posts(array(
 
 						<ul class="col-list-2 degree-list" id="majors-list">
 
-							<?php foreach($majors as $key=>$m){ ?>
-								<li class="<?php ?>">
+							<?php foreach($majors as $key=>$m){ 
+
+								$class_list = implode(' ',wp_get_post_categories($m->ID, array("fields" => "slugs")));								
+								
+							?>
+								<li class="<?php echo $class_list; ?>">
 									<a href="<?php echo $m->post_name; ?>/" title="<?php echo $m->post_title; ?>" class="degree-item-link">
 										<span class="degree-title"><?php echo $m->post_title; ?></span>
 										<small><?php echo program_format_string($m,'short'); ?></small>
