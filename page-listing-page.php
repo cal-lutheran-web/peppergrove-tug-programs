@@ -37,7 +37,7 @@ $minors = get_posts(array(
 
 
 	<!-- Majors Listing JS -->
-	<script type="text/javascript" src="https://www.callutheran.edu/academics/majors/_resources/js/majors-listing.js"></script>
+	<script type="text/javascript" src="/majors/_resources/js/majors-listing-2021.js"></script>
 
 
 	
