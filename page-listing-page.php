@@ -162,24 +162,34 @@ $minors = get_posts(array(
 					</div>
 					<div class="col-sm-4">
 					
+						<?php if(!empty(get_field('box_1'))){ ?>
 						<div class="bg-box bg-white">
-							<h5>Advising Programs</h5>
-							<?php the_field('advising_programs'); ?>
+							
+							<?php the_field('box_1'); ?>
 							
 							<ul>
-							<?php $advising_programs = get_posts(array( 'post_type' => 'advising' ));
+								<?php $advising_programs = get_posts(array( 'post_type' => 'advising' ));
 
-							foreach($advising_programs as $key=>$a){
-								echo '<li><a href="'.$a->post_name.'">'.$a->post_title.'</a></li>';
-							}
+								foreach($advising_programs as $key=>$a){
+									echo '<li><a href="'.$a->post_name.'">'.$a->post_title.'</a></li>';
+								}
 							?>
 							</ul>
 						</div>
-							
+						<?php } ?>
+						
+						<?php if(!empty(get_field('box_2'))){ ?>
 						<div class="bg-box bg-white">
-							<h5>4+1 Programs</h5>
-							<?php the_field('4_plus_1_programs'); ?>
+							<?php the_field('box_2'); ?>
 						</div>
+						<?php } ?>
+
+
+						<?php if(!empty(get_field('box_3'))){ ?>
+						<div class="bg-box bg-white">
+							<?php the_field('box_3'); ?>
+						</div>
+						<?php } ?>
 					
 					
 					</div>
