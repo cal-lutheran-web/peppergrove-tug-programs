@@ -137,9 +137,9 @@
 	<!-- THE EXPERIENCE -->
 	<?php
 
-		$exp_quotes_field = get_field('related_exp_quotes');
-
 		if(array_key_exists('experience', active_sections($post))){
+
+			$exp_quotes_field = get_field('related_exp_quotes');
 
 			shuffle($exp_quotes_field);
 
@@ -271,10 +271,11 @@
 
 
 	<!-- YOUR PROFESSORS -->
-	<?php
-		$faculty_list = array_filter(get_field('faculty_list'));
-		
-		if(array_key_exists('faculty', active_sections($post))){ ?>
+	<?php if(array_key_exists('faculty', active_sections($post))){ 
+			
+			$faculty_list = array_filter(get_field('faculty_list'));
+
+		?>
 		
 		
 		<section id="your-professors">
