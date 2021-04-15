@@ -69,42 +69,45 @@
 					
 					<hr class="gold hide-on-desktop">
 					
-					<h6>Programs</h6>
-					<p><?php echo program_format_sentence($post); ?></p>
-					<br>
-
-					
 					<?php
-						$concentrations = get_field('concentrations');
+						$related_majors = get_field('related_majors');
 
-						if(!empty($concentrations)){ ?>
+						if(!empty($related_majors)){ ?>
 						
-						<h6>Concentrations</h6>
+						<h5>Popular Majors</h5>
 						<ul>
-							<?php foreach($concentrations as $key=>$c){
-								echo '<li>'.$c->name.'</li>';
-							} ?>
-						</ul>
 
-						<?php } ?>
-
-					
-					<?php
-						$related_minors = get_field('related_minors');
-
-						if(!empty($related_minors)){ ?>
-						
-						<h6>Popular Minor Pairings</h6>
-						<ul class="special-list">
-
-							<?php foreach($related_minors as $key=>$item){
-								echo '<li><a href="/academics/minors/'.$item->post_name.'">'.$item->post_title.'</a></li>';
+							<?php foreach($related_majors as $key=>$item){
+								echo '<li><a href="/academics/major/'.$item->post_name.'">'.$item->post_title.'</a></li>';
 							} ?>
 
 						</ul>
 						<br>	
 
 					<?php } ?>
+
+
+					<?php
+						$faculty_list = get_field('faculty_list');
+
+						if(!empty($faculty_list)){ ?>
+						
+							<h5>Advisors</h5>
+							
+							<?php foreach($faculty_list as $key=>$item){
+									parse_str($item, $faculty_item); ?>
+
+								<a class="profile-small" href="/faculty/profile.html?id=<?php echo $faculty_item['username']; ?>" title="<?php echo $faculty_item['name']; ?>">
+									<div class="profile-small-image crop-circle" style="background-image: url('https://earth.callutheran.edu/images/profile_photos/150/<?php echo $faculty_item['id']; ?>.jpg');"></div>
+									<div class="profile-small-content">
+									<header><?php echo $faculty_item['name']; ?></header>
+									<p><?php echo $faculty_item['title']; ?></p>
+									</div>
+								</a>
+							
+							<?php }
+						
+						} ?>
 								
 
 					<div class="row">
@@ -192,44 +195,11 @@
 	
 	<section id="future">
 		<div class="container">
-			<div class="col-sm-12"><div class="section-title">Your Future</div></div>
-				
-				<div class="col-sm-9">
+			<div class="col-sm-12">
+				<div class="section-title">Your Future</div>
 
-					<?php the_field('career_intro'); ?>
+				<?php the_field('career_intro'); ?>
 
-					<div class="row">
-						<div class="col-sm-4">
-							<h6>Our alumni study at:</h6>
-							
-							<?php the_field('employers'); ?>
-
-						</div>
-						<div class="col-sm-4">
-							<h6>Our alumni work for:</h6>
-
-							<?php the_field('job_titles'); ?>
-							
-						</div>
-						<div class="col-sm-4">
-							<h6>Career paths:</h6>
-
-							<?php the_field('graduate_schools'); ?>
-
-						</div>					
-					</div>
-					
-				</div>
-		
-				<div class="col-sm-3 centered">
-					
-					<div class="factoid-pie" id="pie-chart-97">
-						<div class="ct-chart ct-octave" data-pie="97"></div>
-						<p>of Cal Lutheran graduates find a job or enroll in graduate school within nine months</p>
-					</div>
-					
-					<a href="/admission/undergraduate/discover/career-outcomes.html" class="btn btn-arrow-right block blue">More Career Outcomes</a>
-				</div>
 			</div>
 
 
@@ -269,35 +239,6 @@
 	
 	<?php } ?>
 
-
-	<!-- YOUR PROFESSORS -->
-	<?php if(array_key_exists('faculty', active_sections($post))){ 
-			
-			$faculty_list = array_filter(get_field('faculty_list'));
-
-		?>
-		
-		
-		<section id="your-professors">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="section-title">Your Professors</div>
-					</div>
-				</div>
-				<div class="flexrow">
-
-				<?php 
-					foreach($faculty_list as $key=>$f){
-						parse_str($f, $faculty_item);
-						include( locate_template( 'parts/faculty-item.php', false, false ) ); 
-				} ?>
-								
-				</div>
-			</div>
-		</section>
-
-	<?php } ?>
 
 </div>
 	

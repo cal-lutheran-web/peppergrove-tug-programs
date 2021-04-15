@@ -17,7 +17,7 @@ function active_sections($post){
 		$active['future'] =  'Your Future';
 	}
 	
-	if(get_field('faculty_list')){
+	if(get_field('faculty_list') && $post->post_type !== 'advising'){
 		$active['faculty'] = 'Your Professors';
 	}
 
