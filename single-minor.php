@@ -21,6 +21,8 @@
 					<p class="page-intro"><?php the_field('intro'); ?></p>
 
 					<?php the_field('description'); ?>
+
+					<p><a href="/academics/majors/?tab=minors" class="hide-on-mobile"><i class="icon-left-dir"></i>Show All Minors</a></p>
 					
 				</div>
 				<div class="col-sm-3">
