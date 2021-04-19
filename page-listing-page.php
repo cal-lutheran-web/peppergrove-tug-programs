@@ -31,6 +31,21 @@ $minors = get_posts(array(
 
 	<!-- Majors Listing CSS -->
 	<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/majors-listing.css" />
+
+	<!-- Page Hero -->
+	<style type="text/css">
+		.header-row {
+			background-image: url('<?php echo page_hero_images($post)['large']; ?>');
+			background-position: center top;
+			background-size: cover;
+		}
+		
+		@media (min-width: 768px){
+			.header-row {
+				background-image: url('<?php echo page_hero_images($post)['small']; ?>');
+			}
+		}
+	</style>
 	
 
 	<?php conejo_js(true); ?>
