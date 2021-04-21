@@ -25,6 +25,7 @@ if($title_search->have_posts()){
 			'title' => get_the_title(),
 			'subtitle' => program_format_search_result($post),
 			'slug' => $post->post_name,
+			'type' => $post->post_type
 		);
 
 		$search_index[$key] = $detail;
@@ -86,7 +87,8 @@ if(!empty($tax_search) && ! is_wp_error($tax_search)) {
 					$detail = array(
 						'title' => $term->name,
 						'subtitle' => 'Concentration in '.$t->post_title,
-						'slug' => $t->post_name
+						'slug' => $t->post_name,
+						'type' => $t->post_type
 					);
 
 					$search_index[$key] = $detail;
@@ -96,7 +98,8 @@ if(!empty($tax_search) && ! is_wp_error($tax_search)) {
 					$detail = array(
 						'title' => $t->post_title,
 						'subtitle' => program_format_search_result($t),
-						'slug' => $t->post_name
+						'slug' => $t->post_name,
+						'type' => $t->post_type
 					);
 
 					$search_index[$key] = $detail;
