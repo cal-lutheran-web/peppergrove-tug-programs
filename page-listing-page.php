@@ -52,7 +52,7 @@ $minors = get_posts(array(
 
 
 	<!-- Majors Listing JS -->
-	<script type="text/javascript" src="/majors/_resources/js/majors-listing-2021.js"></script>
+	<script type="text/javascript" src="/academics/majors/_resources/js/majors-listing-2021.js"></script>
 
 
 	
