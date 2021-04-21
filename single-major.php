@@ -44,7 +44,7 @@
 			</div>
 			<div class="row">		
 				<div class="col-sm-12 hide-on-desktop">
-					<a href="/academics/majors" class="btn btn-arrow-left green btn-small">View Other Majors</a>
+					<a href="/academics/majors/" class="btn btn-arrow-left green btn-small">View Other Majors</a>
 				</div>
 			</div>
 		</div>

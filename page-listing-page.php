@@ -190,7 +190,7 @@ $minors = get_posts(array(
 								<?php $advising_programs = get_posts(array( 'post_type' => 'advising' ));
 
 								foreach($advising_programs as $key=>$a){
-									echo '<li><a href="'.$a->post_name.'">'.$a->post_title.'</a></li>';
+									echo '<li><a href="/academics/advising/'.$a->post_name.'">'.$a->post_title.'</a></li>';
 								}
 							?>
 							</ul>
@@ -225,7 +225,7 @@ $minors = get_posts(array(
 					<div class="col-sm-12">
 						<ul class="col-list degree-list" id="minors-list">
 							<?php foreach($minors as $key=>$m){ ?>
-								<li class="<?php ?>"><a href="<?php echo $m->post_name; ?>/" title="<?php echo $m->post_title; ?>" class="degree-item-link"><span class="degree-title"><?php echo $m->post_title; ?></span></a></li>
+								<li class="<?php ?>"><a href="/academics/minors/<?php echo $m->post_name; ?>/" title="<?php echo $m->post_title; ?>" class="degree-item-link"><span class="degree-title"><?php echo $m->post_title; ?></span></a></li>
 							<?php } ?>
 						</ul>
 					</div>

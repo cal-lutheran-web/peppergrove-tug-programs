@@ -38,7 +38,7 @@
 			</div>
 			<div class="row">		
 				<div class="col-sm-12 hide-on-desktop">
-					<a href="/academics/majors" class="btn btn-arrow-left green btn-small">View Other Majors</a>
+					<a href="/academics/majors/" class="btn btn-arrow-left green btn-small">View Other Majors</a>
 				</div>
 			</div>
 		</div>
@@ -78,7 +78,7 @@
 						<ul>
 
 							<?php foreach($related_majors as $key=>$item){
-								echo '<li><a href="/academics/major/'.$item->post_name.'">'.$item->post_title.'</a></li>';
+								echo '<li><a href="/academics/majors/'.$item->post_name.'">'.$item->post_title.'</a></li>';
 							} ?>
 
 						</ul>

@@ -35,7 +35,7 @@
 						<h5>Popular Major Pairings</h5>
 						<ul>
 							<?php foreach($related_majors as $key => $item){
-								echo '<li><a href="'.$item->post_name.'">'.$item->post_title.'</a></li>';
+								echo '<li><a href="/academics/majors/'.$item->post_name.'">'.$item->post_title.'</a></li>';
 							} ?>
 						</ul>
 					<?php } ?>
