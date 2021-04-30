@@ -182,7 +182,7 @@ $minors = get_posts(array(
 					<div class="col-sm-4">
 					
 						<?php if(!empty(get_field('box_1'))){ ?>
-						<div class="bg-box bg-white">
+						<div class="bg-box bg-white" id="advising-programs">
 							
 							<?php the_field('box_1'); ?>
 							
