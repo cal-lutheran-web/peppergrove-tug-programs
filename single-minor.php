@@ -22,6 +22,34 @@
 
 					<?php the_field('description'); ?>
 
+					<?php
+
+						$alumni_quotes_field = get_field('related_quotes');
+
+						if(!empty($alumni_quotes_field)){
+							shuffle($alumni_quotes_field);
+						
+							$displayed_alumni_quotes = array_slice($alumni_quotes_field, 0, 1);
+							
+							$alumni_posts = get_posts(array(
+								'post_type' => 'quotes',
+								'include' => $displayed_alumni_quotes
+							));
+
+							if(!empty($alumni_posts)){
+								foreach($alumni_posts as $key=>$post){
+									setup_postdata($post);
+									
+									get_template_part('parts/alumni-quote-card');
+								}
+							}
+						
+							wp_reset_postdata();
+
+						}
+
+					?>
+
 					<p><a href="/academics/majors/?tab=minors" class="hide-on-mobile"><i class="icon-left-dir"></i>Show All Minors</a></p>
 					
 				</div>
