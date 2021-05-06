@@ -1,6 +1,30 @@
 <?php
 
 
+
+function program_url($post){
+
+	$post_type = $post->post_type;
+
+	if($post_type == 'major'){
+		$type_slug = 'majors';
+	} else if ($post_type == 'minor'){
+		$type_slug = 'minors';
+	} else if ($post_type == 'advising'){
+		$type_slug = 'advising';
+	}
+
+	$slug = $post->post_name;
+
+	return 'https://www.callutheran.edu/academics/'.$type_slug.'/'.$slug.'/';
+
+}
+
+
+
+
+
+
 function page_hero_images($post){
 
 	$large_hero = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'large');
