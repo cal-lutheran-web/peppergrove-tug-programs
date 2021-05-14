@@ -11,7 +11,7 @@
 	<script src="https://www.callutheran.edu/_resources/js/custom-charts.js"></script>
 
 </head>
-<body class="degree-detail">
+<body>
 	
 	<!-- Page Hero -->
 	<?php get_template_part('parts/page-hero'); ?>

@@ -5,7 +5,7 @@
 	<?php get_template_part('parts/html-head'); ?>
 		
 </head>
-<body class="degree-detail">
+<body>
 	
 	<!-- Page Hero -->
 	<?php get_template_part('parts/page-hero', 'minor'); ?>
