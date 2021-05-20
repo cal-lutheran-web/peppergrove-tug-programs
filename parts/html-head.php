@@ -33,7 +33,7 @@
 
 <?php conejo_css(); ?>
 
-<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/degree-detail-2021.css" />
+<link rel="stylesheet" type="text/css" href="https://www.callutheran.edu/academics/majors/_resources/css/degree-detail.css" />
 
 <?php if(!empty(page_hero_images($post)['large'])){ ?>
 
