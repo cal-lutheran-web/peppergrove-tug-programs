@@ -11,7 +11,11 @@
 	<script src="https://www.callutheran.edu/_resources/js/custom-charts.js"></script>
 
 </head>
-<body>
+<?php if(is_local()){ ?>
+	<body class="degree-detail">
+<?php } else { ?>
+	<body>
+<?php } ?>
 	
 	<!-- Page Hero -->
 	<?php get_template_part('parts/page-hero'); ?>
