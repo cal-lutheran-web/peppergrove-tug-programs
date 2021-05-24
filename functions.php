@@ -1,8 +1,26 @@
 <?php
 
+function html_prepend($post){
+
+	if(isset($_GET['preview'])){
+		
+		//$redirect_url = program_url($post,'dev');
+		$redirect_params = '?post_type='.$_GET['post_type'].'&p='.$_GET['p'].'&preview=true';
+		//$redirect_url = (is_local() == true) ? 'http://cluwp.local/tug-programs/' : 'http://dev.callutheran.edu/academics/majors/detail.html';
+		
+		//header("Location: http://dev.callutheran.edu/academics/majors/detail.html".$redirect_params);
+	}
+}
 
 
-function program_url($post){
+
+function program_url($post,$server='www'){
+
+	if($server == '' || $server == 'www'){
+		$server = 'https://www';
+	} elseif($server == 'dev'){
+		$server = 'http://dev';
+	}
 
 	$post_type = $post->post_type;
 
@@ -16,7 +34,7 @@ function program_url($post){
 
 	$slug = $post->post_name;
 
-	return 'https://www.callutheran.edu/academics/'.$type_slug.'/'.$slug.'/';
+	return $server.'.callutheran.edu/academics/'.$type_slug.'/'.$slug;
 
 }
 
@@ -55,6 +73,12 @@ function active_sections($post){
 	
 	if(get_field('faculty_list') && $post->post_type !== 'advising'){
 		$active['faculty'] = 'Your Professors';
+	}
+
+	if(isset($_GET['test'])){
+	echo '<pre>';
+	var_dump(get_field('faculty_list'));
+	echo '</pre>';
 	}
 
 	return $active;
