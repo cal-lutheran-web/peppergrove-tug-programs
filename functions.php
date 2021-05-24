@@ -72,10 +72,6 @@ function active_sections($post){
 	}
 
 	$faculty_list = array_filter(get_field('faculty_list'));
-echo '<pre>';
-print_r($faculty_list);
-echo '</pre>';
-
 	
 	
 	if(!empty(get_field('faculty_list')) && $post->post_type !== 'advising'){
