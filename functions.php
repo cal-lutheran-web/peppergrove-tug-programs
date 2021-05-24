@@ -75,14 +75,7 @@ function active_sections($post){
 		$active['faculty'] = 'Your Professors';
 	}
 
-	if(isset($_GET['test'])){
-	echo '<pre>';
-	var_dump(get_field('faculty_list'));
-	echo '</pre>';
-	}
-
 	return $active;
-	
 
 }
 
