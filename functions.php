@@ -71,7 +71,7 @@ function active_sections($post){
 		$active['future'] =  'Your Future';
 	}
 
-	$faculty_list = array_filter(get_field('faculty_list');
+	$faculty_list = array_filter(get_field('faculty_list'));
 echo '<pre>';
 print_r($faculty_list);
 echo '</pre>';
