@@ -70,8 +70,15 @@ function active_sections($post){
 	if(get_field('career_intro')){
 		$active['future'] =  'Your Future';
 	}
+
+	$faculty_list = array_filter(get_field('faculty_list');
+echo '<pre>';
+print_r($faculty_list);
+echo '</pre>';
+
 	
-	if(get_field('faculty_list') && !empty(get_field('faculty_list')) && $post->post_type !== 'advising'){
+	
+	if(!empty(get_field('faculty_list')) && $post->post_type !== 'advising'){
 		$active['faculty'] = 'Your Professors';
 	}
 
