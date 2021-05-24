@@ -73,13 +73,9 @@ function active_sections($post){
 
 	$faculty_list = array_filter(get_field('faculty_list'));
 	
-	
-	if(!empty(get_field('faculty_list')) && $post->post_type !== 'advising'){
+	if(!empty($faculty_list) && $post->post_type !== 'advising'){
 		$active['faculty'] = 'Your Professors';
 	}
-
-
-	
 
 	return $active;
 
