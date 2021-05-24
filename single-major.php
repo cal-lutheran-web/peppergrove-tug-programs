@@ -299,6 +299,14 @@
 	<?php if(array_key_exists('faculty', active_sections($post))){ 
 			
 			$faculty_list = array_filter(get_field('faculty_list'));
+echo '<pre>';
+print_r(is_empty($faculty_list));
+echo '</pre>';
+
+			echo '<pre>';
+			print_r($faculty_list);
+			echo '</pre>';
+			
 
 		?>
 		
