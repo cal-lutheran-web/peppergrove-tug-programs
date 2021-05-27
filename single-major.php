@@ -298,9 +298,10 @@
 	<!-- YOUR PROFESSORS -->
 	<?php 
 	
-	if(array_key_exists('faculty', active_sections($post))){ 
+	if(array_key_exists('your-professors', active_sections($post))){ 
 			
 			$faculty_list = array_filter(get_field('faculty_list'));
+
 
 
 		?>
