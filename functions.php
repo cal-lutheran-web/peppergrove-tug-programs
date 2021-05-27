@@ -1,5 +1,12 @@
 <?php
 
+
+// sets up majors contributor role for non-marketing users to edit majors
+//remove_role( 'majors_contributor' );
+
+$majors_contributor_role = add_role('majors_contributor', 'Majors Contributor', get_role('editor')->capabilities);
+
+
 function html_prepend($post){
 
 	if(isset($_GET['preview'])){
@@ -74,7 +81,7 @@ function active_sections($post){
 	$faculty_list = array_filter(get_field('faculty_list'));
 	
 	if(!empty($faculty_list) && $post->post_type !== 'advising'){
-		$active['faculty'] = 'Your Professors';
+		$active['your-professors'] = 'Your Professors';
 	}
 
 	return $active;
