@@ -33,7 +33,7 @@
 							
 				<div class="<?php echo $summary_css_class; ?> program-summary">
 					
-					<?php echo get_field('tagline') ? '<p class="intro">'.get_field('tagline').'</p>' : ''; ?>
+					<?php //echo get_field('tagline') ? '<p class="intro">'.get_field('tagline').'</p>' : ''; ?>
 					<?php the_field('summary'); ?>
 					
 				</div>
