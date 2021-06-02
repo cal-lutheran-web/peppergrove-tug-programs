@@ -228,8 +228,8 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<h6>Our alumni study at:</h6>
-							
-							<?php the_field('job_titles'); ?>
+
+							<?php the_field('graduate_schools'); ?>
 
 						</div>
 						<div class="col-sm-4">
@@ -241,8 +241,8 @@
 						<div class="col-sm-4">
 							<h6>Career paths:</h6>
 
-							<?php the_field('graduate_schools'); ?>
-
+							<?php the_field('job_titles'); ?>
+							
 						</div>					
 					</div>
 					
