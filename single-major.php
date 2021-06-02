@@ -229,13 +229,13 @@
 						<div class="col-sm-4">
 							<h6>Our alumni study at:</h6>
 							
-							<?php the_field('employers'); ?>
+							<?php the_field('job_titles'); ?>
 
 						</div>
 						<div class="col-sm-4">
 							<h6>Our alumni work for:</h6>
 
-							<?php the_field('job_titles'); ?>
+							<?php the_field('employers'); ?>
 							
 						</div>
 						<div class="col-sm-4">
