@@ -18,29 +18,32 @@
 	$blockquote_array = explode('</blockquote>',explode('<blockquote>', $quote)[1]);
 
 	if(sizeof($blockquote_array) > 1){
-	
+		// if quote contains wrapping tags for blockquote and cite
 		$cite = explode('<cite>', $blockquote_array[0]);
 		$quote_text = '';
 
 		if(sizeof($cite) > 1){
 			// cite tag is inline in quote
-			$quote_text = explode('<p><cite>',$blockquote_array[0])[0];
-			$quote_cite = '<p><cite>'.$cite[1];
+			$quote_text = '<blockquote>'.explode('<p><cite>',$blockquote_array[0])[0].'</blockquote>';
+			$quote_cite = '';
 		} else {
 			// cite tag separate from quote
-			$quote_text = $blockquote_array[0];
+			$quote_text = '<blockquote>'.$blockquote_array[0].'</blockquote>';
 			$quote_cite = $blockquote_array[1];
 		}
 
-	} else {
-	
+	} else if(strpos(get_field('quote'), '<h3>') == 0){ 
+		// if quote starts with H3 and not to be formatted as a quote
 		$quote_text = get_field('quote');
+		$quote_cite = '';
 
+	} else {
+		// else quote is just plain text (preferred)
+		$quote_text = '<blockquote>'.get_field('quote').'</blockquote>';
 		$quote_cite = get_cite_html($post->ID);
-
 	}
 	
-	$quote_html = '<blockquote>'.$quote_text.'</blockquote>'.$quote_cite;
+	$quote_html = $quote_text.$quote_cite;
 
 
 
