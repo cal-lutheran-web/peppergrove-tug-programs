@@ -12,7 +12,6 @@
 		$media = '<img src="'.$img_data.'">';
 	}
 
-
 	// clean up quote cite
 
 	$blockquote_array = explode('</blockquote>',explode('<blockquote>', $quote)[1]);
@@ -29,25 +28,16 @@
 		} else {
 			// cite tag separate from quote
 			$quote_text = '<blockquote>'.$blockquote_array[0].'</blockquote>';
-			$quote_cite = $blockquote_array[1];
+			$quote_cite = (trim($blockquote_array[1]) == '') ? get_cite_html($post->ID) : trim($blockquote_array[1]);
 		}
 
-	} else if(strpos(get_field('quote'), '<h3>') == 0){ 
+	} else { 
 		// if quote starts with H3 and not to be formatted as a quote
 		$quote_text = get_field('quote');
 		$quote_cite = '';
-
-	} else {
-		// else quote is just plain text (preferred)
-		$quote_text = '<blockquote>'.get_field('quote').'</blockquote>';
-		$quote_cite = get_cite_html($post->ID);
-	}
+	} 
 	
 	$quote_html = $quote_text.$quote_cite;
-
-
-
-	
 
 ?>
 
