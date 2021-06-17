@@ -78,10 +78,13 @@ function active_sections($post){
 		$active['future'] =  'Your Future';
 	}
 
-	$faculty_list = array_filter(get_field('faculty_list'));
-	
-	if(!empty($faculty_list) && $post->post_type !== 'advising'){
-		$active['your-professors'] = 'Your Professors';
+	if(get_field('faculty_list') !== null){
+		$faculty_list = array_filter(get_field('faculty_list'));
+		
+		if(!empty($faculty_list) && $post->post_type !== 'advising'){
+			$active['your-professors'] = 'Your Professors';
+		}
+
 	}
 
 	return $active;
@@ -196,7 +199,7 @@ function get_cite_html($post_id){
 
 	// major
 	if(get_field('major', $post_id) !== ''){
-		$quote_cite_array[] = (get_field('major', $post_id) !== '') ? get_field('major', $post_id).' Major' : '';
+		$quote_cite_array[] = get_field('major', $post_id).' Major';
 	}
 
 	// job title and company
