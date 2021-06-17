@@ -198,7 +198,7 @@ function get_cite_html($post_id){
 	$quote_cite_array[] = $quote_name;
 
 	// major
-	if(get_field('major', $post_id) !== ''){
+	if(trim(get_field('major', $post_id)) !== ''){
 		$quote_cite_array[] = get_field('major', $post_id).' Major';
 	}
 
