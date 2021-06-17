@@ -183,4 +183,38 @@ function program_format_search_result($post){
 
 
 
+
+function get_cite_html($post_id){
+
+	$quote_text = get_field('quote', $post_id);
+
+	$quote_cite_array = array();
+
+	// add name
+	$quote_name = (get_field('class_year', $post_id) !== '') ? get_the_title($post_id).' '.get_class_year(get_field('class_year', $post_id)) : get_the_title($post_id);
+	$quote_cite_array[] = $quote_name;
+
+	// major
+	if(get_field('major') !== ''){
+		$quote_cite_array[] = (get_field('major', $post_id) !== '') ? get_field('major', $post_id).' Major' : '';
+	}
+
+	// job title and company
+	$quote_job_array = array();
+	$quote_job_array[] = get_field('job_title', $post_id);
+	$quote_job_array[] = get_field('company', $post_id);
+
+	$quote_job = implode(', ', array_filter($quote_job_array));
+
+	$quote_cite_array[] = $quote_job;
+
+	// location
+	$quote_cite_array[] = get_field('location', $post_id);
+
+	return '<p><cite>'.implode('<br />', array_filter($quote_cite_array)).'</cite></p>';
+
+	
+}
+
+
 ?>
