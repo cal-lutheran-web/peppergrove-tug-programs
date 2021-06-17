@@ -4,10 +4,11 @@
 
 	$aside = ($featured_img !== '') ? $featured_img : '';
 
-	$cite = '<cite>'.get_the_title().'</cite><p>'.get_field('job_title').'<br />'.get_field('company').'</p>';
+	$cite = get_cite_html($post->ID);
+
 	//$read_more = (get_field('url') !== '') ? '<a href="'.get_field('url').'" class="btn">Read More</a>' : '';
 
-	$si_content = '<blockquote>'.get_field('quote').'</blockquote>'.$cite;
+	$si_content = '<blockquote><p>'.get_field('quote').'</p></blockquote>'.$cite;
 
 ?>
 
