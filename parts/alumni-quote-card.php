@@ -6,18 +6,16 @@
 
 	$cite = get_cite_html($post->ID);
 
-	//$read_more = (get_field('url') !== '') ? '<a href="'.get_field('url').'" class="btn">Read More</a>' : '';
-
-	$si_content = '<blockquote><p>'.get_field('quote').'</p></blockquote>'.$cite;
+	$quote_text = '<p>'.nl2br(get_field('quote', false, false)).'</p>';
+	
+	$si_content = '<blockquote>'.$quote_text.'</blockquote>'.$cite;
 
 ?>
 
 
 	<div class="row">
 		<div class="col-sm-12">
-
 			<?php short_item($aside,$si_content,'short-item-large short-item-no-border'); ?>
-
 		</div>
 	</div>
 	
