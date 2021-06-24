@@ -3,12 +3,13 @@
 	$quote = get_field('quote');
 
 	// setup media type
+	$media = '';
 	$img_data = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
-	$video_id = get_field('youtube_id');
+	$video_id = get_field('youtube_id');	
 
-	if($video_id !== ''){
+	if(!empty($video_id)){
 		$media = '<iframe width="560" height="315" src="//www.youtube.com/embed/'.$video_id.'?rel=0" frameborder="0" allowfullscreen></iframe>';
-	} else if($img_data !== false){
+	} else if(has_post_thumbnail($post->ID)){
 		$media = '<img src="'.$img_data.'">';
 	}
 
