@@ -322,6 +322,8 @@
 
 						if(isset($_GET['test'])){
 							$faculty_item['username'] = $faculty_item['amp;username'];
+							$faculty_item['title'] = $faculty_item['amp;title'];
+							$faculty_item['name'] = $faculty_item['amp;name'];
 
 							echo '<pre>';
 							print_r($faculty_item);
