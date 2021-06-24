@@ -331,11 +331,7 @@
 						if(array_key_exists('amp;name', $faculty_item)){
 							$faculty_item['name'] = $faculty_item['amp;name'];
 						}
-
-						echo '<pre>';
-						print_r($faculty_item);
-						echo '</pre>';
-
+						
 						include( locate_template( 'parts/faculty-item.php', false, false ) ); 
 				} ?>
 								
