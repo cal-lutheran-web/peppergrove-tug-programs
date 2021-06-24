@@ -321,9 +321,17 @@
 						parse_str($f, $faculty_item);
 
 						if(isset($_GET['test'])){
-							$faculty_item['username'] = $faculty_item['amp;username'];
-							$faculty_item['title'] = $faculty_item['amp;title'];
-							$faculty_item['name'] = $faculty_item['amp;name'];
+							if(array_key_exists('amp;username', $faculty_item)){
+								$faculty_item['username'] = $faculty_item['amp;username'];
+							}
+
+							if(array_key_exists('amp;title', $faculty_item)){
+								$faculty_item['title'] = $faculty_item['amp;title'];
+							}
+
+							if(array_key_exists('amp;name', $faculty_item)){
+								$faculty_item['name'] = $faculty_item['amp;name'];
+							}
 
 							echo '<pre>';
 							print_r($faculty_item);
