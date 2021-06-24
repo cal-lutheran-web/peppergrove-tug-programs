@@ -302,12 +302,7 @@
 			
 			$faculty_list = array_filter(get_field('faculty_list'));
 
-if(isset($_GET['test'])){
-	echo '<pre>';
-	print_r($faculty_list);
-	echo '</pre>';
-	
-}
+
 
 		?>
 		
@@ -324,6 +319,13 @@ if(isset($_GET['test'])){
 				<?php 
 					foreach($faculty_list as $key=>$f){
 						parse_str($f, $faculty_item);
+
+						if(isset($_GET['test'])){
+							echo '<pre>';
+							print_r($faculty_item);
+							echo '</pre>';
+							
+						}
 						include( locate_template( 'parts/faculty-item.php', false, false ) ); 
 				} ?>
 								
