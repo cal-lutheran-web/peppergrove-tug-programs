@@ -319,27 +319,23 @@
 				<?php 
 					foreach($faculty_list as $key=>$f){
 						parse_str($f, $faculty_item);
-
-						if(isset($_GET['test'])){
-							if(array_key_exists('amp;username', $faculty_item)){
-								$faculty_item['username'] = $faculty_item['amp;username'];
-							}
-
-							if(array_key_exists('amp;title', $faculty_item)){
-								$faculty_item['title'] = $faculty_item['amp;title'];
-							}
-
-							if(array_key_exists('amp;name', $faculty_item)){
-								$faculty_item['name'] = $faculty_item['amp;name'];
-							}
-
-							echo '<pre>';
-							print_r($faculty_item);
-							echo '</pre>';
-
-							
-							
+				
+						if(array_key_exists('amp;username', $faculty_item)){
+							$faculty_item['username'] = $faculty_item['amp;username'];
 						}
+
+						if(array_key_exists('amp;title', $faculty_item)){
+							$faculty_item['title'] = $faculty_item['amp;title'];
+						}
+
+						if(array_key_exists('amp;name', $faculty_item)){
+							$faculty_item['name'] = $faculty_item['amp;name'];
+						}
+
+						echo '<pre>';
+						print_r($faculty_item);
+						echo '</pre>';
+
 						include( locate_template( 'parts/faculty-item.php', false, false ) ); 
 				} ?>
 								
