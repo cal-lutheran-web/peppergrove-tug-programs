@@ -302,7 +302,12 @@
 			
 			$faculty_list = array_filter(get_field('faculty_list'));
 
-
+if(isset($_GET['test'])){
+	echo '<pre>';
+	print_r($faculty_list);
+	echo '</pre>';
+	
+}
 
 		?>
 		
