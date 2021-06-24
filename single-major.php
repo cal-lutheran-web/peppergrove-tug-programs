@@ -321,9 +321,13 @@
 						parse_str($f, $faculty_item);
 
 						if(isset($_GET['test'])){
+							$faculty_item['username'] = $faculty_item['amp;username'];
+
 							echo '<pre>';
 							print_r($faculty_item);
 							echo '</pre>';
+
+							
 							
 						}
 						include( locate_template( 'parts/faculty-item.php', false, false ) ); 
